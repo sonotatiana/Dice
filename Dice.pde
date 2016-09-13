@@ -1,3 +1,6 @@
+int total= 0;
+
+
 void setup()
 {
 	noLoop();
@@ -5,32 +8,32 @@ void setup()
 	
 }
 void draw()
-{
-	Die sam = new Die(200,200);
-	Die saf = new Die(100,100);
-	Die hai = new Die(300,300);
-	
-	saf.show();
-	sam.show();
-	hai.show();
+{	
+	background(250);		
+	for(int y = 80; y<400; y+=80) {
+		for (int x = 80; y<400; y+=80){
+			Die sam = new Die(x,y);
+			sam.show();
+			sam.roll();
+		}
+	}
 }
 void mousePressed()
 {
 	redraw();
+	total = 0;
 }
 class Die //models one single dice cube
 {
 	int myX;
 	int myY;
 	int numDots;
-	int total;
-	
+
 	Die(int x, int y) //constructor
 	{
 		myX = x;
 		myY = y;
 		numDots = (int)(Math.random()*6)+1;
-		total = 0;
 	}
 	void roll()
 	{
@@ -96,7 +99,11 @@ class Die //models one single dice cube
 			ellipse(myX +12,myY +26,12,12);
 			ellipse(myX +38,myY +42,12,12);
 		}
+		
 		fill(0);
-		rect(185,20,40,40);
+		rect(185,20,50,50);
+		fill(255,242,48);
+		textSize(40);
+		text(total,197,60);
 	}
 }
