@@ -11,12 +11,18 @@ void draw()
 {	
 	background(250);		
 	for(int y = 80; y<400; y+=80) {
-		for (int x = 80; y<400; y+=80){
+		for (int x = 20; x<400; x+=80){
 			Die sam = new Die(x,y);
 			sam.show();
 			sam.roll();
 		}
 	}
+
+		fill(0);
+		rect(185,20,50,50);
+		fill(255,242,48);
+		textSize(40);
+		text(total,185,60);
 }
 void mousePressed()
 {
@@ -99,11 +105,5 @@ class Die //models one single dice cube
 			ellipse(myX +12,myY +26,12,12);
 			ellipse(myX +38,myY +42,12,12);
 		}
-		
-		fill(0);
-		rect(185,20,50,50);
-		fill(255,242,48);
-		textSize(40);
-		text(total,197,60);
 	}
 }
